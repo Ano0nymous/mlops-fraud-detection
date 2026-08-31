@@ -1,0 +1,10 @@
+# Copy this to terraform.tfvars and fill in your own values.
+# Do NOT put db_password in this file, even in a copy - see variables.tf.
+
+aws_region  = "ap-south-1"
+github_org  = "your-github-org-or-username"
+github_repo = "your-repo-name"
+
+# Everything else has defaults matching the existing project
+# (cluster_name = "fraud-cluster", s3_bucket_name = "my-mlflow-bucket67678",
+# etc.) - override here only if you want different values.

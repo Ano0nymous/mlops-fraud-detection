@@ -1,0 +1,17 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Federated": "arn:aws:iam::471932414173:oidc-provider/oidc.eks.ap-south-1.amazonaws.com/id/C0526F877149D8117DC95F7AD93D3D6D"
+      },
+      "Action": "sts:AssumeRoleWithWebIdentity",
+      "Condition": {
+        "StringEquals": {
+          "oidc.eks.ap-south-1.amazonaws.com/id/C0526F877149D8117DC95F7AD93D3D6D:sub": "system:serviceaccount:mlops:mlflow-sa"
+        }
+      }
+    }
+  ]
+}

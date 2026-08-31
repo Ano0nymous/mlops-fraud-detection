@@ -1,0 +1,16 @@
+FROM 471932414173.dkr.ecr.ap-south-1.amazonaws.com/mlflow-server:latest
+
+# Install training dependencies
+RUN pip install --no-cache-dir \
+    scikit-learn==1.5.2 \
+    numpy==1.26.4
+
+# Copy the modified train.py
+COPY src/train.py /app/train.py
+WORKDIR /app
+
+# Environment variable will be supplied by the Job
+ENV MLFLOW_TRACKING_URI=http://mlflow:5000
+ENV AWS_DEFAULT_REGION=ap-south-1
+
+ENTRYPOINT ["python", "train.py"]
