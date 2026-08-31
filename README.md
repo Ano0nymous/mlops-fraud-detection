@@ -87,12 +87,7 @@ terraform init
 terraform apply
 ```
 
-## Known limitations
 
-- CI runs `pytest tests/`, but no `tests/` directory exists yet in this repo — add unit tests for `train.py`'s gate logic and `app.py`'s prediction endpoint.
-- Terraform state is local by default (the S3 backend block is commented out) — fine solo, but should move to a remote backend (S3 + DynamoDB lock) before more than one person touches this.
-- The root-level `*-policy.json` and `trust-policy-*.json` files predate the Terraform IAM setup in `terraform/iam-*.tf` and are effectively superseded by it — worth removing to avoid confusion about which one is authoritative.
-- Ingress hosts use `nip.io` wildcard DNS against the ALB's IP rather than a real domain — fine for a demo cluster, would want real DNS + TLS (cert-manager) for anything long-lived.
 
 ## License
 
